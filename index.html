@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl" ng-app="app" ng-controller="appCtrl">
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css"
+          media="screen,projection"/>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"></script>
+
+
+<script type="text/javascript" src="bower_components/firebase/firebase.js"></script>
+<script type="text/javascript" src="bower_components/angularfire/dist/angularfire.min.js"></script>
+
+<script type="text/javascript" src="js/factory.js"></script>
+<script type="text/javascript" src="js/controller.js"></script>
+
+<script>
+    // Initialize the Firebase SDK
+    var config = {
+        apiKey: 'AIzaSyBMkJ2KFyRANZuyTnGJcBQBs3Uy3sxxkxI',
+        authDomain: 'saveminder.firebaseapp.com',
+        databaseURL: 'https://saveminder.firebaseio.com/',
+        storageBucket: 'gs://saveminder.appspot.com'
+    };
+    firebase.initializeApp(config);
+</script>
+
+<div class="page-wrap">
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a class="center" href="#!">EN</a></li>
+        <li><a class="center" href="#!">DE</a></li>
+        <li><a class="center" href="#!">PL</a></li>
+        <li><a class="center" href="#!">IT</a></li>
+    </ul>
+
+    <nav>
+        <div class="nav-wrapper">
+
+            <a href="#" class="center brand-logo"><i class="material-icons">cloud</i>Saveminder</a>
+            <ul class="left hide-on-med-and-down">
+                <li ng-class="pageClass('/learn')">
+                    <a href="#/learn">Learn</a>
+                </li>
+                <li ng-class="pageClass('/word-manager')">
+                    <a href="#/word-manager">Word manager</a>
+                </li>
+            </ul>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                    <a class="dropdown-button" href="#!" data-activates="dropdown1">
+                        Select language
+                        <i class="material-icons right">arrow_drop_down</i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <div ng-view></div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="page-footer site-footer">
+    <div class="footer-copyright">
+        <div class="container">
+            © 2016 Copyright by Marqn
+            <a class="grey-text text-lighten-4 right" href="#!">marqn.it</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
